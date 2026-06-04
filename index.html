@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>José Antonio Soto — Desarrollador de Software</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1117;
+    --bg-soft:#141b24;
+    --card:#161e29;
+    --line:#243140;
+    --text:#e7edf3;
+    --muted:#8b9bad;
+    --accent:#f5a524;      /* ámbar */
+    --accent-2:#3ddc97;    /* verde menta */
+    --display:'Syne',sans-serif;
+    --body:'Manrope',sans-serif;
+    --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.6;
+    overflow-x:hidden;
+    background-image:
+      radial-gradient(900px 500px at 80% -10%, rgba(245,165,36,.08), transparent),
+      radial-gradient(700px 500px at -10% 20%, rgba(61,220,151,.06), transparent);
+  }
+  /* sutil rejilla de fondo */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:56px 56px;opacity:.04;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+  section{padding:72px 0}
+
+  /* aparición */
+  .reveal{opacity:0;transform:translateY(22px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}
+  .d4{animation-delay:.35s}.d5{animation-delay:.45s}.d6{animation-delay:.55s}
+
+  /* HERO */
+  header.hero{padding:96px 0 64px}
+  .kicker{font-family:var(--mono);font-size:.8rem;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px}
+  .kicker::before{content:"// "}
+  h1{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,7vw,4.8rem);line-height:1.02;letter-spacing:-.02em}
+  h1 .amber{color:var(--accent)}
+  .role{font-family:var(--mono);color:var(--muted);font-size:clamp(.95rem,2.4vw,1.15rem);margin-top:18px}
+  .intro{max-width:620px;margin-top:26px;color:#c2cdd9;font-size:1.08rem}
+  .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+  .btn{font-family:var(--mono);font-size:.92rem;text-decoration:none;padding:13px 22px;border-radius:10px;transition:.25s;display:inline-block}
+  .btn-solid{background:var(--accent);color:#1a1205;font-weight:600}
+  .btn-solid:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(245,165,36,.25)}
+  .btn-ghost{border:1px solid var(--line);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent-2);color:var(--accent-2)}
+
+  /* títulos de sección */
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:34px}
+  .sec-num{font-family:var(--mono);color:var(--accent-2);font-size:.85rem}
+  h2{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4vw,2.4rem);letter-spacing:-.01em}
+
+  /* SERVICIOS */
+  .grid{display:grid;gap:18px}
+  .services .grid{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .svc{background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:24px;transition:.25s}
+  .svc:hover{border-color:var(--accent);transform:translateY(-4px)}
+  .svc .ic{font-family:var(--mono);color:var(--accent);font-size:.8rem;margin-bottom:12px}
+  .svc h3{font-family:var(--display);font-size:1.15rem;margin-bottom:8px}
+  .svc p{color:var(--muted);font-size:.96rem}
+
+  /* PROYECTOS */
+  .proj{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px;margin-bottom:18px;transition:.3s;position:relative;overflow:hidden}
+  .proj::after{content:"";position:absolute;left:0;top:0;height:100%;width:4px;background:linear-gradient(var(--accent),var(--accent-2));opacity:.0;transition:.3s}
+  .proj:hover{border-color:#34465a;transform:translateY(-3px)}
+  .proj:hover::after{opacity:1}
+  .proj-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+  .proj h3{font-family:var(--display);font-size:1.4rem}
+  .proj .sub{font-family:var(--mono);font-size:.82rem;color:var(--accent-2);margin-top:4px}
+  .status{font-family:var(--mono);font-size:.72rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--accent);white-space:nowrap}
+  .proj p.desc{color:#c2cdd9;margin:16px 0 18px;max-width:760px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-family:var(--mono);font-size:.74rem;color:var(--muted);background:#0e151d;border:1px solid var(--line);padding:5px 11px;border-radius:7px}
+
+  /* SOBRE MI */
+  .about p{max-width:720px;color:#c2cdd9;font-size:1.08rem}
+  .about .facts{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+  .fact{font-family:var(--mono);font-size:.82rem;color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+  .fact b{color:var(--text);font-weight:500}
+
+  /* CONTACTO */
+  /* REPOS PÚBLICOS */
+  .repos .grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .repo{display:block;text-decoration:none;background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:24px;transition:.25s}
+  .repo:hover{border-color:var(--accent-2);transform:translateY(-4px)}
+  .repo .name{font-family:var(--mono);color:var(--text);font-size:1rem;margin-bottom:8px;word-break:break-word}
+  .repo .name b{color:var(--accent-2)}
+  .repo p{color:var(--muted);font-size:.92rem;margin-bottom:14px}
+  .repo .go{font-family:var(--mono);font-size:.8rem;color:var(--accent)}
+  .repo:hover .go{text-decoration:underline}
+
+  .contact{border-top:1px solid var(--line);background:var(--bg-soft)}
+  .contact .wrap{padding-top:64px;padding-bottom:64px}
+  .contact h2{margin-bottom:10px}
+  .contact .lead{color:var(--muted);margin-bottom:28px}
+  .links{display:flex;flex-direction:column;gap:12px}
+  .clink{font-family:var(--mono);text-decoration:none;color:var(--text);font-size:1.02rem;display:flex;align-items:center;gap:12px;width:fit-content;transition:.2s}
+  .clink span{color:var(--accent-2)}
+  .clink:hover{color:var(--accent);transform:translateX(4px)}
+  footer{padding:30px 0;text-align:center;color:#5d6b7a;font-family:var(--mono);font-size:.78rem}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker reveal d1">Desarrollador de Software · Backend &amp; Automatización</div>
+    <h1 class="reveal d2">José Antonio<br><span class="amber">Soto Castrejón</span></h1>
+    <div class="role reveal d3">Ingeniero en Sistemas · construyo bots, automatizaciones y apps que los negocios usan de verdad.</div>
+    <p class="intro reveal d4">Me especializo en resolver problemas reales con software: desde un bot de pagos en producción hasta apps a la medida para negocios. Llevo los proyectos de principio a fin: los diseño, los programo, los despliego y los mantengo.</p>
+    <div class="cta reveal d5">
+      <a class="btn btn-solid" href="#contacto">Trabajemos juntos</a>
+      <a class="btn btn-ghost" href="#proyectos">Ver proyectos</a>
+    </div>
+  </div>
+</header>
+
+<section class="services">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">01</span><h2>Qué hago</h2></div>
+    <div class="grid">
+      <div class="svc reveal d1"><div class="ic">[ TG ]</div><h3>Bots de Telegram</h3><p>Membresías VIP, accesos automáticos, expulsiones por vencimiento y paneles privados.</p></div>
+      <div class="svc reveal d2"><div class="ic">[ WA ]</div><h3>Automatización de WhatsApp</h3><p>Atención automática, toma de pedidos, recordatorios e integración con tu operación.</p></div>
+      <div class="svc reveal d3"><div class="ic">[ APP ]</div><h3>Apps a la medida</h3><p>Aplicaciones móviles y de negocio: inventario, gestión, control y reportes.</p></div>
+      <div class="svc reveal d4"><div class="ic">[ API ]</div><h3>Integraciones e IA</h3><p>Conexión de sistemas, APIs, pagos y soluciones apoyadas en inteligencia artificial.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">02</span><h2>Proyectos</h2></div>
+
+    <article class="proj reveal d1">
+      <div class="proj-top">
+        <div><h3>BotKattato</h3><div class="sub">Sistema de membresías VIP para Telegram</div></div>
+        <div class="status">En producción</div>
+      </div>
+      <p class="desc">Bot que automatiza por completo la venta de membresías de pago: genera enlaces de acceso de un solo uso, da de alta a los usuarios en grupos privados y los expulsa de forma automática al vencer los días pagados, con recordatorios de renovación. Incluye cifrado de datos personales y una arquitectura multi-cliente lista para vender a varios negocios.</p>
+      <div class="tags"><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Cifrado AES-256</span><span class="tag">DigitalOcean</span></div>
+    </article>
+
+    <article class="proj reveal d2">
+      <div class="proj-top">
+        <div><h3>Reflex Rush</h3><div class="sub">Videojuego móvil para Android · Mictlan Studio</div></div>
+        <div class="status">Prueba cerrada · Google Play</div>
+      </div>
+      <p class="desc">Juego arcade de reflejos desarrollado de principio a fin como único desarrollador (~28,000 líneas): jugabilidad, interfaz, efectos visuales propios y optimización para móvil. Cuenta con backend en la nube (cuentas, guardado y rankings) y monetización con compras dentro de la app y anuncios.</p>
+      <div class="tags"><span class="tag">Unity 6</span><span class="tag">C#</span><span class="tag">Backend en la nube</span><span class="tag">Monetización</span><span class="tag">Google Play</span></div>
+    </article>
+
+    <article class="proj reveal d3">
+      <div class="proj-top">
+        <div><h3>Notas Inventario</h3><div class="sub">App Android para gestión de negocio</div></div>
+        <div class="status">En uso real</div>
+      </div>
+      <p class="desc">Aplicación móvil que gestiona cuentas de clientes, descuenta el inventario en tiempo real y calcula la rentabilidad por producto y por promoción. Integra escáner de código de barras con la cámara y maneja el dinero con precisión total. Diseñada para un negocio pequeño y funcionando hoy.</p>
+      <div class="tags"><span class="tag">Java</span><span class="tag">Android nativo</span><span class="tag">CameraX</span><span class="tag">Google ML Kit</span></div>
+    </article>
+  </div>
+</section>
+
+<section class="repos">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">03</span><h2>Código en GitHub</h2></div>
+    <div class="grid">
+      <a class="repo reveal d1" href="https://github.com/Defalt0006/api-rest-tareas" target="_blank" rel="noopener">
+        <div class="name"><b>api-rest-tareas</b></div>
+        <p>API REST (CRUD) con Node.js y Express. Rutas, métodos HTTP y respuestas en JSON.</p>
+        <span class="go">Ver código →</span>
+      </a>
+      <a class="repo reveal d2" href="https://github.com/Defalt0006/bot-telegram-demo" target="_blank" rel="noopener">
+        <div class="name"><b>bot-telegram-demo</b></div>
+        <p>Bot de Telegram con Node.js y Telegraf que responde a comandos básicos.</p>
+        <span class="go">Ver código →</span>
+      </a>
+      <a class="repo reveal d3" href="https://github.com/Defalt0006/cifrado-aes-256-gcm" target="_blank" rel="noopener">
+        <div class="name"><b>cifrado-aes-256-gcm</b></div>
+        <p>Ejemplo de cifrado AES-256-GCM en Node.js: cifra, descifra y detecta manipulación.</p>
+        <span class="go">Ver código →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">04</span><h2>Sobre mí</h2></div>
+    <p class="reveal d1">Soy Ingeniero en Sistemas Computacionales con especialidad en Seguridad Informática. Me gusta la parte lógica del desarrollo: el backend, la automatización y resolver el "cómo funciona". Cuando me encuentro con algo que no sé, investigo hasta dominarlo, y me apoyo en la IA como herramienta, verificando siempre lo que produce.</p>
+    <div class="facts reveal d2">
+      <div class="fact"><b>Ingeniero</b> en Sistemas · cédula vigente</div>
+      <div class="fact"><b>Especialidad</b> en Seguridad Informática</div>
+      <div class="fact"><b>Enfoque</b> backend, bots y apps</div>
+      <div class="fact"><b>Trabajo</b> remoto / por proyecto</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <h2 class="reveal">¿Tienes un proyecto en mente?</h2>
+    <p class="lead reveal d1">Cuéntame qué necesitas automatizar o construir, y lo platicamos.</p>
+    <div class="links reveal d2">
+      <a class="clink" href="mailto:jose.soto.c.dev@gmail.com"><span>correo</span> jose.soto.c.dev@gmail.com</a>
+      <a class="clink" href="https://wa.me/524434404442"><span>whatsapp</span> 443 440 4442</a>
+      <a class="clink" href="https://github.com/Defalt0006"><span>github</span> github.com/Defalt0006</a>
+      <a class="clink" href="https://t.me/defalt006"><span>telegram</span> @defalt006</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 José Antonio Soto Castrejón · Desarrollador de Software</footer>
+
+</body>
+</html>
