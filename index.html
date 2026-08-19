@@ -116,6 +116,18 @@
   .clink span{color:var(--accent-2)}
   .clink:hover{color:var(--accent);transform:translateX(4px)}
   footer{padding:30px 0;text-align:center;color:#5d6b7a;font-family:var(--mono);font-size:.78rem}
+  /* galería de capturas del juego */
+  .shots{display:flex;gap:10px;margin-top:18px;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+  .shots::-webkit-scrollbar{height:8px}
+  .shots::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+  .shots img{height:300px;width:auto;border-radius:12px;border:1px solid var(--line);flex:none;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+  @media(max-width:560px){.shots img{height:220px}}
+  /* demo en vivo (RBAC) */
+  .demo-live{margin-top:16px;padding:14px 16px;border:1px solid var(--accent);border-radius:12px;background:rgba(245,165,36,.06);font-size:.98rem}
+  .demo-live b{color:var(--accent)}
+  .demo-live a{color:var(--accent-2);text-decoration:none;font-family:var(--mono);font-size:.9em}
+  .demo-live a:hover{text-decoration:underline}
+  .demo-live .note{display:block;margin-top:7px;color:var(--muted);font-size:.9rem}
 </style>
 </head>
 <body>
@@ -151,11 +163,30 @@
 
     <article class="proj reveal d1">
       <div class="proj-top">
-        <div><h3>BotKattato</h3><div class="sub">Sistema de membresías VIP para Telegram</div></div>
+        <div><h3>Plataforma de bots de membresías VIP</h3><div class="sub">Multi-cliente · Telegram · en producción</div></div>
         <div class="status">En producción</div>
       </div>
-      <p class="desc">Bot que automatiza por completo la venta de membresías de pago: genera enlaces de acceso de un solo uso, da de alta a los usuarios en grupos privados y los expulsa de forma automática al vencer los días pagados, con recordatorios de renovación. Incluye cifrado de datos personales y una arquitectura multi-cliente lista para vender a varios negocios.</p>
-      <div class="tags"><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Cifrado AES-256</span><span class="tag">DigitalOcean</span></div>
+      <p class="desc">Plataforma que automatiza por completo la venta de membresías de pago en Telegram: enlaces de acceso de un solo uso, alta y expulsión automática al vencer los días pagados, y recordatorios de renovación. Arquitectura multi-cliente (aislada por schema en PostgreSQL) con panel de administración y métricas, validación de comprobantes por OCR, verificación de pagos contra el CEP oficial (Banxico) y protección de contenido con marca de agua por comprador. Datos personales cifrados (AES-256-GCM).</p>
+      <div class="tags"><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Cifrado AES-256</span><span class="tag">OCR</span><span class="tag">DigitalOcean</span></div>
+      <div class="demo-live">🔎 <b>Demo interactivo en vivo (control de acceso por roles / RBAC):</b> recorre los tres niveles de privilegio — <b>Creador · Cliente · Administrador</b> — y observa qué puede ver y hacer cada uno, en <a href="https://t.me/StoneGuardian_bot" target="_blank" rel="noopener">t.me/StoneGuardian_bot</a>. <span class="note">Corre bajo demanda: si quieres probarlo, escríbeme antes (<a href="https://t.me/defalt006" target="_blank" rel="noopener">Telegram @defalt006</a>) y lo enciendo en el momento.</span></div>
+    </article>
+
+    <article class="proj reveal d2">
+      <div class="proj-top">
+        <div><h3>Bot de pedidos por WhatsApp</h3><div class="sub">Bot + panel web para restaurante</div></div>
+        <div class="status">Listo para producción</div>
+      </div>
+      <p class="desc">Integración con la API oficial de WhatsApp (WhatsApp Cloud API) con dos identidades: un asistente de pedidos para clientes y un canal interno de operaciones. Toma de pedidos completa (sucursal, menú, producto personalizado, carrito), pagos con comprobantes, y una capa de seguridad reforzada: OTP, cifrado, backups cifrados, bitácora de auditoría y protección CSRF.</p>
+      <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">WhatsApp Cloud API</span><span class="tag">Seguridad (OTP/CSRF)</span></div>
+    </article>
+
+    <article class="proj reveal d3">
+      <div class="proj-top">
+        <div><h3>Botería</h3><div class="sub">Plataforma SaaS para armar y rentar bots</div></div>
+        <div class="status">Prototipo</div>
+      </div>
+      <p class="desc">Armador web (y Mini App de Telegram) donde el cliente configura su bot eligiendo funciones y ve la renta mensual actualizarse en vivo, con motor de precios y plantillas por rubro (creador, gimnasio, curso, club). Incluye un visualizador interactivo del bot resultante (vista de cliente y de administrador) y un generador de códigos QR propio, sin librerías externas.</p>
+      <div class="tags"><span class="tag">TypeScript</span><span class="tag">HTML/CSS/JS</span><span class="tag">Telegram Mini App</span><span class="tag">Motor de precios</span></div>
     </article>
 
     <article class="proj reveal d2">
@@ -165,7 +196,14 @@
       </div>
       <p class="desc">Juego arcade de reflejos desarrollado de principio a fin como único desarrollador (~28,000 líneas): jugabilidad, interfaz, efectos visuales propios y optimización para móvil. Cuenta con backend en la nube (cuentas, guardado y rankings) y monetización con compras dentro de la app y anuncios.</p>
       <div class="tags"><span class="tag">Unity 6</span><span class="tag">C#</span><span class="tag">Backend en la nube</span><span class="tag">Monetización</span><span class="tag">Google Play</span></div>
-    </article>
+      <div class="shots">
+        <img src="capturas/01.png" alt="Reflex Rush — menú principal" loading="lazy">
+        <img src="capturas/05.png" alt="Reflex Rush — gameplay" loading="lazy">
+        <img src="capturas/06.png" alt="Reflex Rush — fin de partida" loading="lazy">
+        <img src="capturas/02.png" alt="Reflex Rush — logros" loading="lazy">
+        <img src="capturas/04.png" alt="Reflex Rush — skins" loading="lazy">
+        <img src="capturas/03.png" alt="Reflex Rush — clasificación" loading="lazy">
+      </div>
 
     <article class="proj reveal d3">
       <div class="proj-top">
