@@ -173,6 +173,17 @@
 
     <article class="proj reveal d2">
       <div class="proj-top">
+        <div><h3>A Que No Sabes</h3><div class="sub">Bot de trivia para Telegram · servidor propio 24/7</div></div>
+        <div class="status">En producción</div>
+      </div>
+      <p class="desc">Juego de trivia en español con más de 1,500 preguntas, corriendo 24/7 en un servidor propio (Raspberry Pi con systemd, arranque automático y reinicio ante fallos). Su núcleo es un sistema de <b>dificultad adaptativa</b>: un muestreo ponderado ajusta en silencio el nivel de cada jugador según sus aciertos, para mantenerlo siempre en zona de reto sin frustrarlo. Monetizado con <b>Telegram Stars</b> (pistas, vidas, categorías y regalos entre usuarios), e incluye modo multijugador en grupos en tiempo real, supervivencia, reto diario, tablas de clasificación, eventos administrables por archivo y un sistema de invitaciones con recompensas por hitos. Del lado de operación: panel de administración con métricas de negocio (ingresos, jugadores activos, qué se vende más) y un vigilante que avisa por Telegram cuando la RAM o el disco del servidor se acercan al límite.</p>
+      <p class="desc"><b>Seguridad:</b> economía servidor-autoritativa — ninguna recompensa puede forjarse desde el cliente y la respuesta correcta nunca viaja hasta que se contesta. Consultas parametrizadas, escapado de entradas, límite de peticiones por usuario, guarda anti-automatización y validación de toda acción recibida. El servidor está endurecido con cortafuegos, acceso solo por llave SSH, fail2ban y respaldos diarios.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">python-telegram-bot</span><span class="tag">SQLite</span><span class="tag">Telegram Stars</span><span class="tag">Raspberry Pi</span><span class="tag">systemd</span><span class="tag">Endurecimiento Linux</span></div>
+      <div class="demo-live">🎮 <b>Pruébalo ahora mismo:</b> está en línea y cualquiera puede jugarlo en <a href="https://t.me/AQueNoSabes_bot" target="_blank" rel="noopener">t.me/AQueNoSabes_bot</a>. <span class="note">No requiere instalación ni permisos: abre el enlace y presiona Iniciar.</span></div>
+    </article>
+
+    <article class="proj reveal d2">
+      <div class="proj-top">
         <div><h3>Bot de pedidos por WhatsApp</h3><div class="sub">Bot + panel web para restaurante</div></div>
         <div class="status">Listo para producción</div>
       </div>
@@ -204,6 +215,7 @@
         <img src="capturas/04.png" alt="Reflex Rush — skins" loading="lazy">
         <img src="capturas/03.png" alt="Reflex Rush — clasificación" loading="lazy">
       </div>
+    </article>
 
     <article class="proj reveal d3">
       <div class="proj-top">
