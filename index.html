@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>José Antonio Soto — Desarrollador de Software</title>
-<meta name="description" content="Ingeniero en Sistemas con especialidad en Seguridad Informática. Construyo bots, automatizaciones y apps que los negocios usan de verdad: plataformas de pago en producción, Telegram, WhatsApp y apps móviles.">
+<meta name="description" content="Ingeniero en Sistemas con especialidad en Seguridad Informática. Construyo bots, automatizaciones y apps que los negocios usan de verdad: una plataforma de pagos en producción, bots de Telegram, sitios web y apps móviles.">
 
 <!-- Vista previa al compartir el enlace (LinkedIn, WhatsApp, Telegram, X) -->
 <meta property="og:type" content="website">
@@ -12,14 +12,14 @@
 <meta property="og:locale" content="es_MX">
 <meta property="og:url" content="https://defalt0006.github.io/portafolio/">
 <meta property="og:title" content="José Antonio Soto — Desarrollador de Software">
-<meta property="og:description" content="Ingeniero en Sistemas con especialidad en Seguridad Informática. Construyo bots, automatizaciones y apps que los negocios usan de verdad: plataformas de pago en producción, Telegram, WhatsApp y apps móviles.">
+<meta property="og:description" content="Ingeniero en Sistemas con especialidad en Seguridad Informática. Construyo bots, automatizaciones y apps que los negocios usan de verdad: una plataforma de pagos en producción, bots de Telegram, sitios web y apps móviles.">
 <meta property="og:image" content="https://defalt0006.github.io/portafolio/capturas/preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Portafolio de José Antonio Soto, desarrollador de software">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="José Antonio Soto — Desarrollador de Software">
-<meta name="twitter:description" content="Ingeniero en Sistemas con especialidad en Seguridad Informática. Construyo bots, automatizaciones y apps que los negocios usan de verdad: plataformas de pago en producción, Telegram, WhatsApp y apps móviles.">
+<meta name="twitter:description" content="Ingeniero en Sistemas con especialidad en Seguridad Informática. Construyo bots, automatizaciones y apps que los negocios usan de verdad: una plataforma de pagos en producción, bots de Telegram, sitios web y apps móviles.">
 <meta name="twitter:image" content="https://defalt0006.github.io/portafolio/capturas/preview.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -139,7 +139,7 @@
   .shots::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
   .shots img{height:300px;width:auto;border-radius:12px;border:1px solid var(--line);flex:none;box-shadow:0 10px 30px rgba(0,0,0,.4)}
   @media(max-width:560px){.shots img{height:220px}}
-  /* demo en vivo (RBAC) */
+  /* recuadro "pruébalo / visítalo" */
   .demo-live{margin-top:16px;padding:14px 16px;border:1px solid var(--accent);border-radius:12px;background:rgba(245,165,36,.06);font-size:.98rem}
   .demo-live b{color:var(--accent)}
   .demo-live a{color:var(--accent-2);text-decoration:none;font-family:var(--mono);font-size:.9em}
@@ -167,9 +167,9 @@
     <div class="sec-head reveal"><span class="sec-num">01</span><h2>Qué hago</h2></div>
     <div class="grid">
       <div class="svc reveal d1"><div class="ic">[ TG ]</div><h3>Bots de Telegram</h3><p>Membresías VIP, accesos automáticos, expulsiones por vencimiento y paneles privados.</p></div>
-      <div class="svc reveal d2"><div class="ic">[ WA ]</div><h3>Automatización de WhatsApp</h3><p>Atención automática, toma de pedidos, recordatorios e integración con tu operación.</p></div>
+      <div class="svc reveal d2"><div class="ic">[ OPS ]</div><h3>Servidores y despliegue</h3><p>Docker, CI/CD con GitHub Actions, servidores Linux protegidos, monitoreo y respaldos automáticos.</p></div>
       <div class="svc reveal d3"><div class="ic">[ APP ]</div><h3>Apps a la medida</h3><p>Aplicaciones móviles y de negocio: inventario, gestión, control y reportes.</p></div>
-      <div class="svc reveal d4"><div class="ic">[ API ]</div><h3>Integraciones e IA</h3><p>Conexión de sistemas, APIs, pagos y soluciones apoyadas en inteligencia artificial.</p></div>
+      <div class="svc reveal d4"><div class="ic">[ API ]</div><h3>Integraciones y pagos</h3><p>Conexión con APIs y webhooks, validación de pagos y paneles con métricas.</p></div>
     </div>
   </div>
 </section>
@@ -184,8 +184,19 @@
         <div class="status">En producción</div>
       </div>
       <p class="desc">Plataforma que automatiza por completo la venta de membresías de pago en Telegram: enlaces de acceso de un solo uso, alta y expulsión automática al vencer los días pagados, y recordatorios de renovación. Arquitectura multi-cliente (aislada por schema en PostgreSQL) con panel de administración y métricas, validación de comprobantes por OCR, verificación de pagos contra el CEP oficial (Banxico) y protección de contenido con marca de agua por comprador. Datos personales cifrados (AES-256-GCM).</p>
+      <p class="desc">Es un sistema privado de mis clientes, por eso no tiene demo pública; con gusto explico cómo está hecho en una entrevista.</p>
       <div class="tags"><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Cifrado AES-256</span><span class="tag">OCR</span><span class="tag">DigitalOcean</span></div>
-      <div class="demo-live">🔎 <b>Demo interactivo en vivo (control de acceso por roles / RBAC):</b> recorre los tres niveles de privilegio — <b>Creador · Cliente · Administrador</b> — y observa qué puede ver y hacer cada uno, en <a href="https://t.me/StoneGuardian_bot" target="_blank" rel="noopener">t.me/StoneGuardian_bot</a>. <span class="note">Corre bajo demanda: si quieres probarlo, escríbeme antes (<a href="https://t.me/defalt006" target="_blank" rel="noopener">Telegram @defalt006</a>) y lo enciendo en el momento.</span></div>
+    </article>
+
+    <article class="proj reveal d2">
+      <div class="proj-top">
+        <div><h3>Botería · boteria.app</h3><div class="sub">Sitio web de mi servicio de bots a medida</div></div>
+        <div class="status">En línea</div>
+      </div>
+      <p class="desc">Página de mi propio servicio de bots de Telegram, en español e inglés. Explica los paquetes con escenas animadas (JavaScript y CSS) que recrean cómo funcionan los bots, e incluye un cotizador interactivo y la lista de precios en PDF. La versión en inglés se genera con un script de Python a partir de un archivo de traducciones, y cada cambio se publica solo en Cloudflare Pages desde GitHub.</p>
+      <p class="desc"><b>Seguridad:</b> política de contenido (CSP) estricta con hashes, HSTS con preload, bloqueo de iframes y demás cabeceras de seguridad.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Python</span><span class="tag">Cloudflare Pages</span><span class="tag">GitHub</span></div>
+      <div class="demo-live">🌐 <b>Visítalo:</b> está en línea en <a href="https://boteria.app" target="_blank" rel="noopener">boteria.app</a>.</div>
     </article>
 
     <article class="proj reveal d2">
@@ -201,28 +212,10 @@
 
     <article class="proj reveal d2">
       <div class="proj-top">
-        <div><h3>Bot de pedidos por WhatsApp</h3><div class="sub">Bot + panel web para restaurante</div></div>
-        <div class="status">Listo para producción</div>
-      </div>
-      <p class="desc">Integración con la API oficial de WhatsApp (WhatsApp Cloud API) con dos identidades: un asistente de pedidos para clientes y un canal interno de operaciones. Toma de pedidos completa (sucursal, menú, producto personalizado, carrito), pagos con comprobantes, y una capa de seguridad reforzada: OTP, cifrado, backups cifrados, bitácora de auditoría y protección CSRF.</p>
-      <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">WhatsApp Cloud API</span><span class="tag">Seguridad (OTP/CSRF)</span></div>
-    </article>
-
-    <article class="proj reveal d3">
-      <div class="proj-top">
-        <div><h3>Botería</h3><div class="sub">Plataforma SaaS para armar y rentar bots</div></div>
-        <div class="status">Prototipo</div>
-      </div>
-      <p class="desc">Armador web (y Mini App de Telegram) donde el cliente configura su bot eligiendo funciones y ve la renta mensual actualizarse en vivo, con motor de precios y plantillas por rubro (creador, gimnasio, curso, club). Incluye un visualizador interactivo del bot resultante (vista de cliente y de administrador) y un generador de códigos QR propio, sin librerías externas.</p>
-      <div class="tags"><span class="tag">TypeScript</span><span class="tag">HTML/CSS/JS</span><span class="tag">Telegram Mini App</span><span class="tag">Motor de precios</span></div>
-    </article>
-
-    <article class="proj reveal d2">
-      <div class="proj-top">
         <div><h3>Reflex Rush</h3><div class="sub">Videojuego móvil para Android · Mictlan Studio</div></div>
         <div class="status">Prueba cerrada · Google Play</div>
       </div>
-      <p class="desc">Juego arcade de reflejos desarrollado de principio a fin como único desarrollador (~28,000 líneas): jugabilidad, interfaz, efectos visuales propios y optimización para móvil. Cuenta con backend en la nube (cuentas, guardado y rankings) y monetización con compras dentro de la app y anuncios.</p>
+      <p class="desc">Juego arcade de reflejos desarrollado de principio a fin como único desarrollador (más de 35,000 líneas de C#): jugabilidad, interfaz, efectos visuales propios y optimización para móvil. Cuenta con backend en la nube (cuentas, guardado y rankings) y monetización con compras dentro de la app y anuncios.</p>
       <div class="tags"><span class="tag">Unity 6</span><span class="tag">C#</span><span class="tag">Backend en la nube</span><span class="tag">Monetización</span><span class="tag">Google Play</span></div>
       <div class="shots">
         <img src="capturas/01.png" alt="Reflex Rush — menú principal" loading="lazy">
